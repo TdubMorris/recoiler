@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv1vekoo1ijfo"]
+
+[ext_resource type="PackedScene" uid="uid://bw1r2lg1kxrvf" path="res://Scenes/player.tscn" id="1_1ainm"]
+[ext_resource type="Texture2D" uid="uid://b4b7nqpkx0qnn" path="res://Assets/icon.svg" id="1_5iyrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ainm"]
+size = Vector2(125, 124)
+
+[node name="Debug Level" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(230, 321)
+scale = Vector2(9.55469, 7.14063)
+texture = ExtResource("1_5iyrr")
+
+[node name="Player" parent="." instance=ExtResource("1_1ainm")]
+position = Vector2(332, 192)
+
+[node name="TestWall" type="StaticBody2D" parent="."]
+position = Vector2(616, 216)
+
+[node name="Icon2" type="Sprite2D" parent="TestWall"]
+texture = ExtResource("1_5iyrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall"]
+shape = SubResource("RectangleShape2D_1ainm")
+
+[node name="TestWall2" type="StaticBody2D" parent="."]
+position = Vector2(587, 598)
+
+[node name="Icon2" type="Sprite2D" parent="TestWall2"]
+texture = ExtResource("1_5iyrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall2"]
+shape = SubResource("RectangleShape2D_1ainm")
+
+[node name="TestWall3" type="StaticBody2D" parent="."]
+position = Vector2(-127, 173)
+
+[node name="Icon2" type="Sprite2D" parent="TestWall3"]
+texture = ExtResource("1_5iyrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall3"]
+shape = SubResource("RectangleShape2D_1ainm")
+
+[node name="TestWall4" type="StaticBody2D" parent="."]
+position = Vector2(128, 564)
+
+[node name="Icon2" type="Sprite2D" parent="TestWall4"]
+texture = ExtResource("1_5iyrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall4"]
+shape = SubResource("RectangleShape2D_1ainm")

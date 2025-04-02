@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmf2e75rbllg5"]
+
+[ext_resource type="Script" uid="uid://diujeqmw7i7ur" path="res://Scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dfo4gp84ao7ht" path="res://Assets/bullet.png" id="2_t4vbm"]
+
+[node name="Bullet" type="Node2D"]
+z_index = -1
+script = ExtResource("1_v8qja")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_t4vbm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+exclude_parent = false
+target_position = Vector2(12, 0)
+hit_from_inside = true

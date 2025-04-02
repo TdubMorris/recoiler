@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw1r2lg1kxrvf"]
+
+[ext_resource type="Script" uid="uid://b0fpn83whl6j6" path="res://Scripts/player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://c54xjk3ind731" path="res://Assets/Player/player.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://b054eoarvvkfm" path="res://Assets/Player/anchor.png" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://cel6nqyjdpn54" path="res://Assets/Player/cannontop.png" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://da2cjycctmnlj" path="res://Scenes/shotgun.tscn" id="5_fkybt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fkybt"]
+friction = 0.1
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jxqw"]
+radius = 30.5941
+
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_fkybt")
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1jxqw")
+
+[node name="Anchor" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("2_x3wgy")
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_hqtel")
+
+[node name="Guns" type="Node2D" parent="."]
+
+[node name="Shotgun" parent="Guns" instance=ExtResource("5_fkybt")]
+
+[node name="Cannontop" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("4_2hs0m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
