@@ -6,6 +6,7 @@
 - [ ] Basic Enemies
 - [ ] Basic Level
 - [ ] Player stats and upgrades
+- [ ] Barrel Positioning System
 - [ ] More Levels
 - [ ] More Upgrades
 - [ ] More Everything
