@@ -12,16 +12,15 @@ func _ready() -> void:
 	$Timer.wait_time = cooldown
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("fire_weapon"):
 		if $Timer.is_stopped():
 			for i in range(bullet_count):
 				shoot()
-			SignalBus._player_recoil.emit(Vector2(250,0).rotated(global_rotation + PI))
+			SignalBus._player_recoil.emit(250 * Vector2.LEFT.rotated(global_rotation))
+			$CPUParticles2D.emitting = true
 			$Timer.start()
 			$ShotgunBarrel/AnimationPlayer.stop()
 			$ShotgunBarrel/AnimationPlayer.play("barrel_recoil")
-			
-			
 
 func shoot() -> void:
 	var bullet = bulletScene.instantiate()

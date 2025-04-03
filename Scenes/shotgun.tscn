@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://da2cjycctmnlj"]
+[gd_scene load_steps=8 format=3 uid="uid://da2cjycctmnlj"]
 
 [ext_resource type="Script" uid="uid://qq3f8y5wju87" path="res://Scripts/shotgun.gd" id="1_u0ide"]
 [ext_resource type="Texture2D" uid="uid://ba6p6s6e8e1ab" path="res://Assets/Player/default_barrel.png" id="2_8claw"]
@@ -39,6 +39,13 @@ _data = {
 &"barrel_recoil": SubResource("Animation_u0ide")
 }
 
+[sub_resource type="Curve" id="Curve_u0ide"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.238636, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_u0ide"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
+
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_u0ide")
 
@@ -57,3 +64,22 @@ position = Vector2(52, 0)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(2, 1, 1, 1)
+position = Vector2(40, 0)
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(0, 5)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_u0ide")
+color_ramp = SubResource("Gradient_u0ide")

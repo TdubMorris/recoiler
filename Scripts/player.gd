@@ -9,15 +9,13 @@ func _process(_delta: float) -> void:
 	$Guns.look_at(get_global_mouse_position())
 	$Anchor.global_rotation = 0.0
 	
-	#Camera Movement
+	#camera movement
 	var target = get_viewport().get_mouse_position() - get_viewport_rect().size / 2
 	$Camera2D.global_position = global_position + 0.2 * target
-	
-	
 
 func _physics_process(delta: float) -> void:
 	
-	#Anchoring Mechanic
+	# anchoring mechanic
 	if Input.is_action_just_pressed("anchor"):
 		$Anchor.show()
 		linear_velocity = Vector2(0,0)
@@ -26,13 +24,15 @@ func _physics_process(delta: float) -> void:
 		$Anchor.hide()
 		anchored = false
 	
-	#Rotation
+	# rotation with q+e
 	if Input.is_action_pressed("rotate_left"):
 		angular_velocity = max(angular_velocity - 0.1, -5)
 	if Input.is_action_pressed("rotate_right"):
 		angular_velocity = min(angular_velocity + 0.1, 5)
-	
 
+# function for pushing player around with recoil
 func recoil(direction: Vector2):
 	if not anchored:
 		apply_impulse(direction)
+
+# obligitory comment congragulating you for reading this

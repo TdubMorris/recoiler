@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmf2e75rbllg5"]
 
 [ext_resource type="Script" uid="uid://diujeqmw7i7ur" path="res://Scripts/bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://dfo4gp84ao7ht" path="res://Assets/bullet.png" id="2_t4vbm"]
+[ext_resource type="Texture2D" uid="uid://dfo4gp84ao7ht" path="res://Assets/shotgunbullet.png" id="2_t4vbm"]
 
-[node name="Bullet" type="Node2D"]
+[node name="bullet" type="Node2D"]
 z_index = -1
 script = ExtResource("1_v8qja")
 
-[node name="Bullet" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(3, 1.5, 1, 1)
 scale = Vector2(4, 4)
 texture = ExtResource("2_t4vbm")
 
