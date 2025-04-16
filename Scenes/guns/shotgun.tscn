@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://da2cjycctmnlj"]
 
 [ext_resource type="Script" uid="uid://qq3f8y5wju87" path="res://Scripts/shotgun.gd" id="1_u0ide"]
-[ext_resource type="Texture2D" uid="uid://ba6p6s6e8e1ab" path="res://Assets/Player/default_barrel.png" id="2_8claw"]
+[ext_resource type="Texture2D" uid="uid://ba6p6s6e8e1ab" path="res://Assets/Sprites/Player/default_barrel.png" id="2_8claw"]
 
 [sub_resource type="Animation" id="Animation_8claw"]
 length = 0.001
@@ -50,6 +50,7 @@ colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
 script = ExtResource("1_u0ide")
 
 [node name="ShotgunBarrel" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_8claw")
 

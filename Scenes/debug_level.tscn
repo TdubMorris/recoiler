@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv1vekoo1ijfo"]
+[gd_scene load_steps=7 format=3 uid="uid://cv1vekoo1ijfo"]
 
 [ext_resource type="PackedScene" uid="uid://bw1r2lg1kxrvf" path="res://Scenes/player.tscn" id="1_1ainm"]
-[ext_resource type="Texture2D" uid="uid://b4b7nqpkx0qnn" path="res://Assets/icon.svg" id="1_5iyrr"]
+[ext_resource type="Texture2D" uid="uid://b4b7nqpkx0qnn" path="res://Assets/Sprites/icon.svg" id="1_5iyrr"]
+[ext_resource type="PackedScene" uid="uid://bnvdcgyqswfnx" path="res://Scenes/triangle_enemy.tscn" id="3_5iyrr"]
+[ext_resource type="PackedScene" uid="uid://dvh0qei4etguf" path="res://Scenes/enemy_spawner.tscn" id="3_46jdd"]
 
 [sub_resource type="Environment" id="Environment_1ainm"]
 background_mode = 3
@@ -20,7 +22,7 @@ environment = SubResource("Environment_1ainm")
 
 [node name="Icon" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(332.5, 454)
+position = Vector2(319, 457)
 scale = Vector2(14.6328, 8.40625)
 texture = ExtResource("1_5iyrr")
 
@@ -62,3 +64,14 @@ texture = ExtResource("1_5iyrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall4"]
 shape = SubResource("RectangleShape2D_1ainm")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_46jdd")]
+position = Vector2(-889, 382)
+enemies = Array[PackedScene]([ExtResource("3_5iyrr")])
+count = 100
+radius = 500.0
+
+[node name="triangle_enemy" parent="." instance=ExtResource("3_5iyrr")]
+position = Vector2(1170, 465)

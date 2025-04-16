@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfo4gp84ao7ht"
-path="res://.godot/imported/shotgunbullet.png-b948c5269410f28d6e0fff1e8f3ab616.ctex"
+uid="uid://b4b7nqpkx0qnn"
+path="res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/shotgunbullet.png"
-dest_files=["res://.godot/imported/shotgunbullet.png-b948c5269410f28d6e0fff1e8f3ab616.ctex"]
+source_file="res://Assets/Sprites/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

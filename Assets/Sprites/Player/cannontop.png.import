@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buart8adieuy"
-path="res://.godot/imported/laserbarrel.png-2419c8e7d7b6dd830461e8cda857261e.ctex"
+uid="uid://cel6nqyjdpn54"
+path="res://.godot/imported/cannontop.png-41b6e67c830e921bde73d11084cabea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/laserbarrel.png"
-dest_files=["res://.godot/imported/laserbarrel.png-2419c8e7d7b6dd830461e8cda857261e.ctex"]
+source_file="res://Assets/Sprites/Player/cannontop.png"
+dest_files=["res://.godot/imported/cannontop.png-41b6e67c830e921bde73d11084cabea8.ctex"]
 
 [params]
 

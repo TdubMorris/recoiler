@@ -14,16 +14,18 @@ config/name="Recoiler"
 run/main_scene="uid://cv1vekoo1ijfo"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0991808, 0.143368, 0.199231, 1)
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
 SignalBus="*res://Scripts/signalbus.gd"
+PlayerStats="*res://playerstats.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -31,9 +33,18 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/Materials/": "orange",
+"res://Assets/Sprites/": "yellow",
 "res://Scenes/": "blue",
-"res://Scripts/": "green"
+"res://Scripts/": "green",
+"res://Scripts/components/": "gray",
+"res://Scripts/shaders/": "teal"
 }
+
+[global_group]
+
+enemy=""
+player=""
 
 [input]
 

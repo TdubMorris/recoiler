@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds2kge8s1crcv"]
+
+[ext_resource type="Script" uid="uid://rlm3k11s2rco" path="res://Scenes/hud.gd" id="1_6fbih"]
+[ext_resource type="Texture2D" uid="uid://cm51my7341bbi" path="res://Assets/Sprites/ammobg.png" id="1_bjfho"]
+[ext_resource type="Texture2D" uid="uid://bbqvf0b20xlyb" path="res://Assets/Sprites/ammobar.png" id="1_e0onf"]
+[ext_resource type="Texture2D" uid="uid://bg4levudjj1rj" path="res://Assets/Sprites/ammoprogress.png" id="2_6fbih"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_6fbih")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ammobar" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -272.0
+offset_top = 29.0
+offset_right = -32.0
+offset_bottom = 65.0
+grow_horizontal = 0
+
+[node name="AmmoBG" type="TextureRect" parent="Control/Ammobar"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 8.0
+offset_right = -32.0
+offset_bottom = 28.0
+grow_horizontal = 0
+texture = ExtResource("1_bjfho")
+
+[node name="AmmoProgress" type="TextureRect" parent="Control/Ammobar/AmmoBG"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 20.0
+texture = ExtResource("2_6fbih")
+
+[node name="AmmoBorder" type="TextureRect" parent="Control/Ammobar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_bottom = 36.0
+grow_horizontal = 0
+texture = ExtResource("1_e0onf")

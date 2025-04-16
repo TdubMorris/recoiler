@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw1r2lg1kxrvf"]
 
 [ext_resource type="Script" uid="uid://b0fpn83whl6j6" path="res://Scripts/player.gd" id="1_hqtel"]
-[ext_resource type="Texture2D" uid="uid://c54xjk3ind731" path="res://Assets/Player/player.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://b054eoarvvkfm" path="res://Assets/Player/anchor.png" id="2_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://cel6nqyjdpn54" path="res://Assets/Player/cannontop.png" id="4_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://da2cjycctmnlj" path="res://Scenes/shotgun.tscn" id="4_fkybt"]
-[ext_resource type="PackedScene" uid="uid://c72fcdcuviro1" path="res://Scenes/laser_cannon.tscn" id="5_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://c54xjk3ind731" path="res://Assets/Sprites/Player/player.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://b054eoarvvkfm" path="res://Assets/Sprites/Player/anchor.png" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://cel6nqyjdpn54" path="res://Assets/Sprites/Player/cannontop.png" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://da2cjycctmnlj" path="res://Scenes/guns/shotgun.tscn" id="4_fkybt"]
+[ext_resource type="PackedScene" uid="uid://ds2kge8s1crcv" path="res://Scenes/hud.tscn" id="6_x3wgy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fkybt"]
 friction = 0.1
@@ -14,7 +14,7 @@ bounce = 0.2
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jxqw"]
 radius = 30.5941
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_fkybt")
 gravity_scale = 0.0
 linear_damp = 1.0
@@ -36,17 +36,16 @@ texture = ExtResource("2_hqtel")
 [node name="Guns" type="Node2D" parent="."]
 
 [node name="Shotgun" parent="Guns" instance=ExtResource("4_fkybt")]
-rotation = 2.35619
-
-[node name="Shotgun2" parent="Guns" instance=ExtResource("4_fkybt")]
-rotation = 3.92699
-
-[node name="laser cannon" parent="Guns" instance=ExtResource("5_x3wgy")]
+spread = 20
+damage = 1
 
 [node name="Cannontop" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(4, 4)
 texture = ExtResource("4_2hs0m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
+
+[node name="HUD" parent="Camera2D" instance=ExtResource("6_x3wgy")]

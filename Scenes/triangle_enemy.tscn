@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnvdcgyqswfnx"]
+
+[ext_resource type="Script" uid="uid://c6xdgn7lckl07" path="res://Scripts/triangle_enemy.gd" id="1_m2jwi"]
+[ext_resource type="Shader" uid="uid://cdm6xlfnumoav" path="res://Scripts/shaders/hitflash.tres" id="2_28wd8"]
+[ext_resource type="Texture2D" uid="uid://76lhp54b3byh" path="res://Assets/Sprites/Enemies/tringle.png" id="2_ntdtf"]
+[ext_resource type="PackedScene" uid="uid://do7o8mnjswut1" path="res://Scenes/components/movement_cpt.tscn" id="3_ntdtf"]
+[ext_resource type="PackedScene" uid="uid://b70dgc6dy6rs0" path="res://Scenes/components/health_cpt.tscn" id="4_343q2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m2jwi"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmayn"]
+resource_local_to_scene = true
+shader = ExtResource("2_28wd8")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/MixAmount = 0.0
+
+[sub_resource type="Animation" id="Animation_jmayn"]
+length = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/MixAmount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_28wd8"]
+resource_name = "damage_flash"
+length = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/MixAmount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ts3j0"]
+_data = {
+&"RESET": SubResource("Animation_jmayn"),
+&"damage_flash": SubResource("Animation_28wd8")
+}
+
+[node name="triangle_enemy" type="RigidBody2D" groups=["enemy"]]
+mass = 0.3
+physics_material_override = SubResource("PhysicsMaterial_m2jwi")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_m2jwi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jmayn")
+scale = Vector2(4.15897, 4.15897)
+texture = ExtResource("2_ntdtf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -23, 26, 0, -14, 23)
+
+[node name="MovementCPT" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_ntdtf")]
+actor = NodePath("..")
+
+[node name="HealthCPT" parent="." instance=ExtResource("4_343q2")]
+max_health = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ts3j0")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="health_depleted" from="HealthCPT" to="." method="_on_health_cpt_health_depleted"]

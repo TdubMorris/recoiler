@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c72fcdcuviro1"]
 
-[ext_resource type="Texture2D" uid="uid://buart8adieuy" path="res://Assets/Player/laserbarrel.png" id="1_tqf4l"]
-[ext_resource type="Script" uid="uid://b30vgpu6tu8rf" path="res://Scripts/laser_cannon.gd" id="1_x8f7s"]
+[ext_resource type="Script" uid="uid://b30vgpu6tu8rf" path="res://Scripts/laser_cannon.gd" id="1_jk6le"]
+[ext_resource type="Texture2D" uid="uid://buart8adieuy" path="res://Assets/Sprites/Player/laserbarrel.png" id="2_a1hnj"]
 
 [sub_resource type="Curve" id="Curve_x8f7s"]
 _data = [Vector2(0.00568181, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.42953, 0.0, 0, 0]
@@ -10,12 +10,12 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_d7u5a"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
 
-[node name="laser cannon" type="Node2D"]
-script = ExtResource("1_x8f7s")
+[node name="LaserCannon" type="Node2D"]
+script = ExtResource("1_jk6le")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(47, 0)
-target_position = Vector2(1000, 0)
+target_position = Vector2(2000, 0)
 hit_from_inside = true
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -41,5 +41,10 @@ scale_amount_curve = SubResource("Curve_x8f7s")
 color_ramp = SubResource("Gradient_d7u5a")
 
 [node name="Laserbarrel" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(4, 4)
-texture = ExtResource("1_tqf4l")
+texture = ExtResource("2_a1hnj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

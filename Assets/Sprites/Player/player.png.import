@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cel6nqyjdpn54"
-path="res://.godot/imported/cannontop.png-f701e9409c0a4c0ffb41cda6cbc6b331.ctex"
+uid="uid://c54xjk3ind731"
+path="res://.godot/imported/player.png-e5bcc12b1c827a46ab4bc1d5f38dd105.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/cannontop.png"
-dest_files=["res://.godot/imported/cannontop.png-f701e9409c0a4c0ffb41cda6cbc6b331.ctex"]
+source_file="res://Assets/Sprites/Player/player.png"
+dest_files=["res://.godot/imported/player.png-e5bcc12b1c827a46ab4bc1d5f38dd105.ctex"]
 
 [params]
 
